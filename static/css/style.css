@@ -5,7 +5,11 @@ body {
     padding: 0;
 }
 
-
+.content{
+    color: black;
+    margin-left: 60px ;
+    background-color: #c2cdd6;
+}
 h1 {
     color: #343a40; /* Darker color for the header */
     margin-bottom: 20px; /* Space below the header */

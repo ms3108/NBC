@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NBC Rules Website</title>
     <link rel="stylesheet" href="static/css/style.css">
+
 </head>
-<body>
+<body >
+
+
 
 <!-- Navigation Bar -->
 <ul class="navbar">
@@ -15,11 +18,17 @@
     <li><a href="{{ url_for('calc') }}">Calculations Page</a></li>
 </ul>
 
+
 <!-- Header Section -->
 <header class="header">
     <h1>NBC Rules Website</h1>
     <p align="center">Your go-to resource for NBC rules and regulations</p>
 </header>
+
+<div class="content">
+
+
+
 
 <!-- Search Section -->
 <div class="center">
@@ -30,25 +39,22 @@
     </form>
 
     <!-- Display Search Results -->
-    <!-- Search Results Section in index.html -->
-{% if results is defined and results|length > 0 %}
-    <h4>Results:</h4>
-    <ul class="no-bullets">
-        {% for title, url in results.items() %}
-    <li>
-        <a href="{{ url_for('rule_content', rule_id=title) }}">{{ title }}</a>
-    </li>
-{% endfor %}
-
-    </ul>
-{% elif results is defined %}
-    <h4>No results found.</h4>
-{% endif %}
-
+    {% if results is defined and results|length > 0 %}
+        <h4>Results:</h4>
+        <ul class="no-bullets">
+            {% for title, url in results.items() %}
+                <li>
+                    <a href="#" onclick="fetchDocContent('{{ url }}')">{{ title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% elif results is defined %}
+        <h4>No results found.</h4>
+    {% endif %}
 </div>
 
 <!-- Section to display the fetched content -->
-<div id="doc-content">Loading...</div>
+<div id="doc-content"></div>
 
 <script>
 // Function to fetch content from Google Docs and display it in the 'doc-content' div
@@ -73,6 +79,9 @@ function fetchDocContent(url) {
         });
 }
 </script>
+
+
+</div>
 
 </body>
 </html>

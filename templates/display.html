@@ -8,15 +8,16 @@
 </head>
 <body class="content">
 
-<div class="content">
+<!-- Navigation Bar -->
+<ul class="navbar">
+    <li><a href="{{ url_for('home') }}">Home</a></li>
+    <li><a href="{{ url_for('content') }}">Rules Page</a></li>
+    <li><a href="{{ url_for('calc') }}">Calculations Page</a></li>
+</ul>
 
+<h1>{{ rule_id }} Content</h1>
 
-
-
-</div>
-<h1>Rule Content</h1>
-
-<div id="doc-content"></div>
+<div id="doc-content">Loading...</div>
 
 <script>
 // Fetch and display the content of the rule using the rule_url passed from Flask
