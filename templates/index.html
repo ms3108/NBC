@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBC Rules Website</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<ul class="navbar">
+    <li><a href="{{ url_for('home') }}">Home</a></li>
+    <li><a href="{{ url_for('content') }}">Rules Page</a></li>
+    <li><a href="{{ url_for('calc') }}">Calculations Page</a></li>
+</ul>
+
+<!-- Header Section -->
+<header class="header">
+    <h1>NBC Rules Website</h1>
+    <p align="center">Your go-to resource for NBC rules and regulations</p>
+</header>
+
+<!-- Search Section -->
+<div class="center">
+    <h2>Search</h2>
+    <form action="{{ url_for('search') }}" method="GET">
+        <input type="text" name="query" placeholder="Enter search term..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Display Search Results -->
+    <!-- Search Results Section in index.html -->
+{% if results is defined and results|length > 0 %}
+    <h4>Results:</h4>
+    <ul class="no-bullets">
+        {% for title, url in results.items() %}
+    <li>
+        <a href="{{ url_for('rule_content', rule_id=title) }}">{{ title }}</a>
+    </li>
+{% endfor %}
+
+    </ul>
+{% elif results is defined %}
+    <h4>No results found.</h4>
+{% endif %}
+
+</div>
+
+<!-- Section to display the fetched content -->
+<div id="doc-content">Loading...</div>
+
+<script>
+// Function to fetch content from Google Docs and display it in the 'doc-content' div
+function fetchDocContent(url) {
+    const docContentDiv = document.getElementById('doc-content');
+    docContentDiv.innerHTML = 'Loading...'; // Display a loading message
+
+    // Fetch the document content using the URL
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.statusText);
+            }
+            return response.text();
+        })
+        .then(data => {
+            docContentDiv.innerText = data; // Display the fetched content as plain text
+        })
+        .catch(error => {
+            docContentDiv.innerText = 'Error fetching document content: ' + error.message;
+            console.error('Error fetching document:', error);
+        });
+}
+</script>
+
+</body>
+</html>

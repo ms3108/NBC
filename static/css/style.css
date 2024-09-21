@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif; /* Set a clean font */
+    background-color: #c2cdd6; /* Light background color for contrast */
+    margin: 0;
+    padding: 0;
+}
+
+
+h1 {
+    color: #343a40; /* Darker color for the header */
+    margin-bottom: 20px; /* Space below the header */
+    text-align: center;
+}
+
+p {
+    color: rgba(32, 30, 30, 0.86); /* Soft text color for paragraphs */
+    margin-left: 60px ; /* Space above and below paragraphs */
+
+
+
+}
+
+a {
+    text-decoration: none; /* Remove underline from links */
+    color: rgba(32, 30, 30, 0.86); /* Bootstrap primary color for links */
+    font-weight: bold; /* Make links bold */
+        text-align: center;
+
+}
+
+a:hover {
+    color: #0056b3; /* Darker color on hover for links */
+    text-decoration: underline; /* Underline on hover */
+        text-align: center;
+
+}
+
+.center {
+    text-align: center; /* Center text */
+}
+
+
+.no-bullets {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.no-bullets li {
+    margin-bottom: 10px; /* Space between list items */
+}
+header {
+    background-color: white; /* Customize background color */
+    color: white; /* Text color */
+    padding: 20px; /* Padding */
+}
+
+/* Add this to your style.css */
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+
+
+/* Centering content */
+.center {
+  text-align: center;
+}.navbar {
+    color: white; /* Text color */
+    background-color: #333; /* Background color */
+    display: block;
+    padding: 10px; /* Add padding for better spacing */
+    text-align: left; /* Align text to the left */
+}
+
+.navbar a {
+    color: white; /* Change link text color to white */
+    text-decoration: none; /* Remove underline from links */
+    display: block; /* Make links take the full width for easier clicking */
+    padding: 8px 8px;/* Add padding around links */
+}
+
+.navbar a:hover {
+    color: #ddd; /* Change link color on hover */
+}
+

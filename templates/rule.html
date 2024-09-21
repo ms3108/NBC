@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rule Content</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+<div>
+   <ul class="navbar">
+    <li><a href="{{ url_for('home') }}">Home</a></li>
+    <li><a href="{{ url_for('content') }}">Rules Page</a></li>
+    <li><a href="{{ url_for('calc') }}">Calculations Page</a></li>
+</ul>
+
+</div>
+
+
+<h1>Rule Content</h1>
+
+<div id="doc-content">Loading...</div>
+
+<script>
+// Fetch and display the content of the rule
+const ruleId = "{{ rule_id }}"; // This is passed from Flask
+fetch(`https://docs.google.com/document/d/${ruleId}/export?format=txt`)
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('doc-content').innerText = data;
+    })
+    .catch(error => {
+        document.getElementById('doc-content').innerText = 'Error fetching document content.';
+        console.error('Error fetching document:', error);
+    });
+</script>
+
+</body>
+</html>

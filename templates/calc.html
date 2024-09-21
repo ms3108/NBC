@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+<ul class ='navbar'>
+    <li><a href="{{ url_for('home') }}">Home</a></li>
+    <li><a href="{{ url_for('content') }}">Rules Page</a></li>
+    <li><a href="{{ url_for('calc') }}">Calculations Page</a></li>
+</ul>
+
+
+<body class="center">
+    <h1>Calculations Page</h1>
+    <p>This is the content page where you can place additional information.</p>
+    <p>  </p>
+</body>
+</html>

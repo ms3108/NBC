@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rule Index</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<ul class="navbar">
+    <li><a href="{{ url_for('home') }}">Home</a></li>
+    <li><a href="{{ url_for('content') }}">Rules Page</a></li>
+    <li><a href="{{ url_for('calc') }}">Calculations Page</a></li>
+</ul>
+
+<h1>Rule Index</h1>
+
+<!-- Rule headings linking to individual pages -->
+{% for title, link in rules.items() %}
+    <p><a href="{{ url_for('rule_content', rule_id=title) }}">{{ title }}</a></p>
+{% endfor %}
+
+
+
+</body>
+</html>
